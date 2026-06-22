@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
      return res.render("homepage");
 })
 
-app.post("/upload", upload.single("profileImage"), (req,res) => {
+app.post("/upload", upload.fields([ { name: "profileImage"},{ name: "coverImage"}]), (req,res) => {
      console.log(req.body);
      console.log(req.file);
 
